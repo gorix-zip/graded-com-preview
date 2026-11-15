@@ -167,10 +167,10 @@ function renderCart(newlyAddedKey = null) {
   headingCount.textContent = String(total);
   countNode.setAttribute('aria-label', `${total} ${total === 1 ? 'item' : 'items'} in cart`);
   const summary = [packTotal && `${packTotal} ${packTotal === 1 ? 'pack' : 'packs'}`, cardTotal && `${cardTotal} ${cardTotal === 1 ? 'single card' : 'single cards'}`].filter(Boolean);
-  document.querySelector('#cartSummary').textContent = total ? `${summary.join(' · ')} in your selection.` : 'Your next pull starts here.';
+  document.querySelector('#cartSummary').textContent = total ? `${summary.join(' · ')} in your cart.` : 'Pick a pack or a card to begin.';
   cartItems.innerHTML = cartProducts().filter(item => cart[item.key])
     .map(item => componentLibrary.cartLine(item, cart[item.key], item.key === newlyAddedKey)).join('');
-  if (!total) cartItems.innerHTML = '<p class="cart-empty">No pulls yet. Add a pack or a single card.</p>';
+  if (!total) cartItems.innerHTML = '<p class="cart-empty">Your cart is clear. Pick a pack or a single card.</p>';
 }
 
 function openCart() {
@@ -209,7 +209,7 @@ function announceCart(message) {
 document.querySelectorAll('[data-coming-soon]').forEach(link => {
   link.addEventListener('click', event => {
     event.preventDefault();
-    announceCart(`${link.childNodes[0].textContent.trim()} is coming soon.`);
+    announceCart(`${link.childNodes[0].textContent.trim()} isn't open in this preview yet.`);
   });
 });
 
@@ -562,7 +562,7 @@ cartItems.addEventListener('click', event => {
     delete cart[remove.dataset.cartRemove];
     saveCart();
     renderCart();
-    announceCart('Pack removed from cart');
+    announceCart('Pack removed from your cart.');
     return;
   }
   const quantity = event.target.closest('[data-cart-key]');
@@ -648,11 +648,11 @@ document.querySelector('#cardMarketSlot').addEventListener('click', event => {
     renderCart(cartKey);
     animateNumber(document.querySelector('#cartCount'));
     playSound('tap');
-    announceCart(`${card.name} single card added · illustrative price $${card.market.price.toFixed(2)}`);
+    announceCart(`${card.name} added to cart · $${card.market.price.toFixed(2)} sample price.`);
     openCart();
     return;
   }
-  document.querySelector('#bidCardName').textContent = `${card.name} · #${card.number} · illustrative price $${card.market.price.toFixed(2)}`;
+  document.querySelector('#bidCardName').textContent = `${card.name} · #${card.number} · sample price $${card.market.price.toFixed(2)}`;
   const amount = document.querySelector('#bidAmount');
   amount.value = (card.market.price * .9).toFixed(2);
   amount.max = (card.market.price * 3).toFixed(2);
@@ -668,7 +668,7 @@ document.querySelector('#bidForm').addEventListener('submit', event => {
   const amount = Number(document.querySelector('#bidAmount').value);
   document.querySelector('#bidDialog').close();
   playSound('tap');
-  announceCart(`Bid preview: $${amount.toFixed(2)} for ${cardName}. No bid was submitted.`);
+  announceCart(`Preview only: $${amount.toFixed(2)} bid for ${cardName}. Nothing was submitted.`);
 });
 
 document.querySelector('#previewClose').addEventListener('click', () => document.querySelector('#cardPreviewDialog').close());
@@ -711,7 +711,7 @@ function renderDemo() {
   demo.classList.toggle('is-peeled', demoPhase === 1);
   demo.classList.toggle('is-revealed', demoPhase === 2);
   document.querySelector('#demoTitle').textContent = ['Rip it open.', 'Pull it free.', 'Card details'][demoPhase];
-  demoAction.textContent = ['Rip', 'Reveal', 'Again'][demoPhase];
+  demoAction.textContent = ['Rip', 'Reveal', 'Rip again'][demoPhase];
   demoAction.setAttribute('aria-label', ['Rip pack', 'Reveal card details', 'Rip another pack'][demoPhase]);
   document.querySelector('#demoRecord').hidden = demoPhase < 2;
   demoCard.setAttribute('aria-hidden', String(demoPhase === 0));

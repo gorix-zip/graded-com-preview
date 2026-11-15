@@ -53,7 +53,7 @@
     const image = escapeHTML(isCard ? item.image : item.poster);
     const descriptor = isCard ? 'Single card' : 'Graded pack';
     const unit = isCard ? 'card' : 'pack';
-    const price = isCard ? `<span class="cart-line-price">$${item.market.price.toFixed(2)} sample</span>` : '';
+    const price = isCard ? `<span class="cart-line-price">$${item.market.price.toFixed(2)} sample price</span>` : '';
     return `<article class="cart-line${isCard ? ' cart-line--card' : ''}${isNew ? ' is-new' : ''}" data-cart-item="${key}">
       <img src="${image}" alt="${name} ${descriptor}" width="600" height="1080">
       <div class="cart-line-main"><strong>${name}</strong><span>${descriptor}</span>${price}
@@ -131,8 +131,8 @@
       <div class="market-main"><div class="market-quote"><strong>${price}</strong><span class="market-change ${positive ? 'is-up' : 'is-down'}">${change} <small>7D</small></span></div>
         <svg class="market-sparkline ${positive ? 'is-up' : 'is-down'}" viewBox="0 0 160 52" preserveAspectRatio="none" role="img" aria-label="Sample seven-day card value ${positive ? 'rising' : 'falling'} ${change}"><polyline points="${points}"/></svg>
       </div>
-      <div class="market-actions"><button type="button" class="button button-acid market-buy" data-buy-card="${escapedKey}">Buy card · ${price}</button><button type="button" class="button button-ghost market-bid" data-bid-card="${escapedKey}">Place bid</button></div>
-      <p class="market-footnote">Illustrative USD trend · condition and live listings will set the real value.</p>
+      <div class="market-actions"><button type="button" class="button button-acid market-buy" data-buy-card="${escapedKey}">Add to cart · ${price}</button><button type="button" class="button button-ghost market-bid" data-bid-card="${escapedKey}">Preview bid</button></div>
+      <p class="market-footnote">Sample USD trend · not a live quote or offer.</p>
     </section>`;
   }
 
@@ -162,7 +162,7 @@
         <p class="preview-set">${set} · #${number}</p>
         <p class="preview-market-tag"><strong>${price}</strong><b class="market-change ${up ? 'is-up' : 'is-down'}">${change} <small>7D</small></b><em>Sample</em></p>
         <p class="preview-rarity">${rarity}</p>
-        <button class="button button-acid preview-market-button" type="button" data-preview-market>View market &amp; buy</button>
+        <button class="button button-acid preview-market-button" type="button" data-preview-market>View market</button>
       </div>
     </div>`;
   }
