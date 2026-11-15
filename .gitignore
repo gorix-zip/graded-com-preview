@@ -1,0 +1,14 @@
+# Keep local research and audit material out of the public preview repository.
+/ASSET_MANIFEST.md
+/README.md
+/studio/
+/review/
+/pack-scene.js
+
+# Publish only optimized runtime media, not source-size archive assets.
+/assets/cards/graded-card-back.png
+/assets/cards/pokemon/*.png
+/assets/fonts/PlusJakartaSans-Variable.ttf
+/assets/fonts/ideoma-MIAGUIII.woff
+/assets/packs/*.png
+/assets/packs/*-thumb.webp

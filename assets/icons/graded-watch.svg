@@ -1,0 +1,16 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="watch" clip-path="url(#clip0_0_10)">
+<circle id="Ellipse 1" cx="6" cy="6" r="3" stroke="black" stroke-width="0.8"/>
+<path id="Vector 1" d="M9 4L11.0017 2" stroke="black" stroke-width="0.8" stroke-linecap="round"/>
+<path id="Vector 3" d="M1.99829 11L4 9" stroke="black" stroke-width="0.8" stroke-linecap="round"/>
+<path id="Vector 2" d="M7.99829 3L10 1" stroke="black" stroke-width="0.8" stroke-linecap="round"/>
+<path id="Vector 4" d="M0.996582 10L2.99829 8" stroke="black" stroke-width="0.8" stroke-linecap="round"/>
+<circle id="Ellipse 2" cx="6" cy="6" r="0.8" fill="black"/>
+<path id="Line 4" d="M6 4V5.6C6 5.82091 6.17909 6 6.4 6H8" stroke="black" stroke-width="0.8" stroke-linecap="round"/>
+</g>
+<defs>
+<clipPath id="clip0_0_10">
+<rect width="12" height="12" fill="white"/>
+</clipPath>
+</defs>
+</svg>
