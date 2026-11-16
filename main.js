@@ -739,7 +739,6 @@ function selectPokemonCard(key) {
     button.classList.toggle('is-selected', selected);
     button.setAttribute('aria-pressed', String(selected));
   });
-  document.querySelector('#cardStatsSlot').innerHTML = componentLibrary.cardFacts(card);
   document.querySelector('#cardMarketSlot').innerHTML = componentLibrary.cardMarket(card);
   renderCardPreview(card);
   renderDemo();

@@ -162,6 +162,7 @@
         <p class="preview-set">${set} · #${number}</p>
         <p class="preview-market-tag"><strong>${price}</strong><b class="market-change ${up ? 'is-up' : 'is-down'}">${change} <small>7D</small></b><em>Sample</em></p>
         <p class="preview-rarity">${rarity}</p>
+        <div class="preview-card-facts">${cardFacts(card)}</div>
         <button class="button button-acid preview-market-button" type="button" data-preview-market>View market</button>
       </div>
     </div>`;
