@@ -817,3 +817,7 @@ body,button,input,textarea,select{font-family:var(--font)}
   .proof-strip{padding-block:var(--space-8) var(--space-12)}
   .pack-rail{gap:var(--space-4)}
 }
+
+.card-preview-trigger{display:inline-flex;align-items:center;gap:6px;padding:7px 0;border:0;background:transparent;color:var(--acid);font-size:11px;font-weight:750;text-decoration:underline;text-underline-offset:4px;white-space:nowrap}
+.card-preview-trigger:hover{color:#e0ff9a}
+@media(max-width:600px){.card-preview-trigger{margin-top:5px;font-size:10px}}

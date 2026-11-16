@@ -631,7 +631,10 @@ document.querySelector('#grailCardShelf').addEventListener('click', event => {
   if (!card) return;
   selectPokemonCard(card.dataset.grailCard);
   playSound('tap');
+});
+document.querySelector('#openCardPreview').addEventListener('click', () => {
   document.querySelector('#cardPreviewDialog').showModal();
+  playSound('tap');
 });
 
 document.querySelector('#cardMarketSlot').addEventListener('click', event => {
