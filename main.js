@@ -887,3 +887,21 @@ window.addEventListener('scroll', () => {
   if (!exitTick) { exitTick = true; requestAnimationFrame(updateHeroExit); }
 }, { passive: true });
 updateHeroExit();
+
+const siteHeader = document.querySelector('.site-header');
+const menuToggle = document.querySelector('#menuToggle');
+function setMenuOpen(open) {
+  siteHeader.classList.toggle('is-menu-open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+}
+menuToggle.addEventListener('click', () => {
+  setMenuOpen(menuToggle.getAttribute('aria-expanded') !== 'true');
+});
+siteHeader.querySelectorAll('nav a').forEach(link => link.addEventListener('click', () => setMenuOpen(false)));
+document.addEventListener('keydown', event => {
+  if (event.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+    setMenuOpen(false);
+    menuToggle.focus();
+  }
+});
